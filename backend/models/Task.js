@@ -13,7 +13,7 @@ const TaskSchema = new mongoose.Schema({
   },
   bgColor: {
     type: String,
-    default: "#ffffff" // Default white
+    default: "#ffffff" 
   },
  
 

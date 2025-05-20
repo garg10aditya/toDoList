@@ -12,16 +12,13 @@ router.post('/register', async (req, res) => {
   try {
     const { username, email, password } = req.body;
     
-    // Check if user exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: 'User already exists' });
     }
 
-    // Create user
     const user = await User.create({ username, email, password });
     
-    // Create token
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
       expiresIn: '1d'
     });
@@ -36,19 +33,16 @@ router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
     
-    // Find user
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
 
-    // Check password
     const isValid = await bcrypt.compare(password, user.password);
     if (!isValid) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
 
-    // Create token
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
       expiresIn: '1d'
     });
