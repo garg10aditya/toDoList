@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/tasks';
+const API_URL = 'https://todolist-backend-soqm.onrender.com/api/tasks';
 
 export const fetchTasks = async () => {
   console.log("Fetching tasks from:", API_URL);
