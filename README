@@ -1,0 +1,6 @@
+This project is build using the MERN stack.
+To run this project locally, 
+run teh command "npm install" in both the folders "backend" and "frontend".
+TO start the backend server, run "npm start" and to start the frontend server, run "npm run dev"
+THe process env file is made public as this is just a test file, the backend port is 5000 and the frontend port is 5173. 
+The MongoDB is connected through atlas to a test database, the url again, is not present in the dot env file, but directly in the index.js in the backend folder.
